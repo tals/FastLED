@@ -119,9 +119,7 @@ struct CRGB {
     }
 
     // default values are UNINITIALIZED
-	inline CRGB() __attribute__((always_inline))
-    {
-    }
+	inline CRGB() = default;
 
     /// allow construction from R, G, B
     inline CRGB( uint8_t ir, uint8_t ig, uint8_t ib)  __attribute__((always_inline))
@@ -163,14 +161,14 @@ struct CRGB {
         hsv2rgb_rainbow( rhs, *this);
     }
 
-    /// allow assignment from one RGB struct to another
-	inline CRGB& operator= (const CRGB& rhs) __attribute__((always_inline))
-    {
-        r = rhs.r;
-        g = rhs.g;
-        b = rhs.b;
-        return *this;
-    }
+ //    /// allow assignment from one RGB struct to another
+	// inline CRGB& operator= (const CRGB& rhs) __attribute__((always_inline))
+ //    {
+ //        r = rhs.r;
+ //        g = rhs.g;
+ //        b = rhs.b;
+ //        return *this;
+ //    }
 
     /// allow assignment from 32-bit (really 24-bit) 0xRRGGBB color code
 	inline CRGB& operator= (const uint32_t colorcode) __attribute__((always_inline))
