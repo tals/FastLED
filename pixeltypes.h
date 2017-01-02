@@ -39,9 +39,7 @@ struct CHSV {
 	};
 
     /// default values are UNITIALIZED
-    inline CHSV() __attribute__((always_inline))
-    {
-    }
+    inline CHSV() = default;
 
     /// allow construction from H, S, V
     inline CHSV( uint8_t ih, uint8_t is, uint8_t iv) __attribute__((always_inline))
@@ -57,13 +55,13 @@ struct CHSV {
         v = rhs.v;
     }
 
-    inline CHSV& operator= (const CHSV& rhs) __attribute__((always_inline))
-    {
-        h = rhs.h;
-        s = rhs.s;
-        v = rhs.v;
-        return *this;
-    }
+    // inline CHSV& operator= (const CHSV& rhs) __attribute__((always_inline))
+    // {
+    //     h = rhs.h;
+    //     s = rhs.s;
+    //     v = rhs.v;
+    //     return *this;
+    // }
 
     inline CHSV& setHSV(uint8_t ih, uint8_t is, uint8_t iv) __attribute__((always_inline))
     {
